@@ -7,7 +7,7 @@ def get_url(url):
 	host, path = parse_url(url)
 	if path == '':
 		path = '/'
-	data = connect_server(host, path)
+	data = connect_server(host, path).decode()
 	html_headers = data.split('\r\n\r\n')[0]
 	html_data = data.split('\r\n\r\n')[1]
 	return html_headers, html_data
